@@ -25,9 +25,9 @@ This is a basic test of Debezium with a postgres connector. The compose file set
   "database.dbname" : "bookstore",
   "database.server.name": "localhost",
   "topic.prefix": "jxhui-test",
-  "tombstones.on.delete" : "false",
-  "table.whitelist" : "store.outboxevent",
-  "plugin.name": "pgoutput"
+  "tombstones.on.delete" : "true",
+  "plugin.name": "pgoutput",
+  "table.include.list": "public.book"
   }
   }'
   ```
