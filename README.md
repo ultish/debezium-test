@@ -41,3 +41,7 @@ This is a basic test of Debezium with a postgres connector. The compose file set
   update book set name = 'JIMMY' where id = 'B002';
   ```
 - look at the messages generated on the topic and you'll see payloads with the changes
+
+# Postgres
+
+Note: need to use wal_level=logical in postgres (set in the compose file)
