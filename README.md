@@ -42,6 +42,45 @@ This is a basic test of Debezium with a postgres connector. The compose file set
   ```
 - look at the messages generated on the topic and you'll see payloads with the changes
 
+# Example Payload
+
+```
+"payload": {
+  "before": {
+    "id": "B002",
+    "name": "JIMMY",
+    "author": "F. Scott Fitzgerald"
+  },
+  "after": {
+    "id": "B002",
+    "name": "JIMMY HUI",
+    "author": "F. Scott Fitzgerald"
+  },
+  "source": {
+    "version": "2.5.0.Final",
+    "connector": "postgresql",
+    "name": "jxhui-test",
+    "ts_ms": 1712378261034,
+    "snapshot": "false",
+    "db": "bookstore",
+    "sequence": "[\"23480472\",\"23480528\"]",
+    "schema": "public",
+    "table": "book",
+    "txId": 497,
+    "lsn": 23480528,
+    "xmin": null
+  },
+  "op": "u",
+  "ts_ms": 1712378261312,
+  "transaction": null
+}
+```
+
 # Postgres
 
 Note: need to use wal_level=logical in postgres (set in the compose file)
+
+# Reading
+
+- https://thorben-janssen.com/outbox-pattern-with-cdc-and-debezium/#setting-up-debezium
+- https://debezium.io/documentation/reference/stable/transformations/index.html
